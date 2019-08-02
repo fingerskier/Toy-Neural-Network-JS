@@ -21,15 +21,15 @@ let training_data = [{
 
 function setup() {
   createCanvas(400, 400);
-  nn = new NeuralNetwork(2, 4, 1);
+  nn = new NeuralNetwork(2, 10, 1);
   lr_slider = createSlider(0.01, 0.5, 0.1, 0.01);
-
+  nn.activation_function = tanh
 }
 
 function draw() {
   background(0);
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 20; i++) {
     let data = random(training_data);
     nn.train(data.inputs, data.outputs);
   }
@@ -46,7 +46,7 @@ function draw() {
       let inputs = [x1, x2];
       let y = nn.predict(inputs);
       noStroke();
-      fill(y * 255);
+      fill(y*255);
       rect(i * resolution, j * resolution, resolution, resolution);
     }
   }
