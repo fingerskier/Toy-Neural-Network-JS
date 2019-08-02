@@ -34,7 +34,7 @@ function draw() {
     nn.train(data.inputs, data.outputs);
   }
 
-  nn.setLearningRate(lr_slider.value());
+  nn.learning_rate = lr_slider.value();
 
   let resolution = 10;
   let cols = width / resolution;
@@ -50,7 +50,4 @@ function draw() {
       rect(i * resolution, j * resolution, resolution, resolution);
     }
   }
-
-
-
 }
